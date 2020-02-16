@@ -28,9 +28,14 @@ public class StudentMain {
         studentList.stream().forEach(System.out::println);
     }
 
+    private static List<Student> sortStudentListBYFirstName(List<Student> studentList) {
+        List<Student> sortedStudentsList = studentList.stream().sorted(Comparator.comparing(Student::getFirstName)).collect(Collectors.toList());
+        return  sortedStudentsList;
+    }
+
     public static void main(String[] args) {
         List<Student> studentList = buildStudentsList();
-         print(sortStudentListBYJoinYear(studentList));
-
+        print(sortStudentListBYJoinYear(studentList));
+        print(sortStudentListBYFirstName(studentList));
     }
 }
